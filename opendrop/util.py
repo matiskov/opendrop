@@ -20,7 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import io
 import ipaddress
 import os
-
+import plistlib
 import ifaddr
 from libarchive.entry import ArchiveEntry, new_archive_entry
 from libarchive.ffi import (  # pylint: disable=no-name-in-module
