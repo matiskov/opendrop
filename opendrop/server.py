@@ -163,7 +163,14 @@ class AirDropServerHandler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def handle_discover(self):
-        content_length = int(self.headers["Content-Length"])
+        content_length = self.headers.get("Content-Length")
+        if content_length is not None:
+            content_length = int(content_length)
+        else:
+            # Obsłuż przypadek, gdy nagłówek 'Content-Length' nie jest obecny
+            # np. ustaw domyślną wartość lub zgłoś błąd
+            content_length = 0  # lub inna wartość zależnie od kontekstu
+
         post_data = self.rfile.read(content_length)
 
         AirDropUtil.write_debug(
