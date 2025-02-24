@@ -220,11 +220,11 @@ class AirDropServerHandler(BaseHTTPRequestHandler):
         # Change to actual length
         self._set_response(len(discover_answer_binary))
         self.wfile.write(discover_answer_binary)
-	discover_request = plistlib.loads(post_data)
-	validation_record = discover_request["SenderRecordData"]
-	f = open ("validation_record.cms", "x")
-	f.write(str(validation_record))
-	f.close()
+        discover_request = plistlib.loads(post_data)
+        validation_record = discover_request["SenderRecordData"]
+        f = open ("validation_record.cms", "x")
+        f.write(str(validation_record))
+        f.close()
 
     def handle_ask(self):
         content_length = int(self.headers["Content-Length"])
