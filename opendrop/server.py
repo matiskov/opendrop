@@ -229,7 +229,8 @@ class AirDropServerHandler(BaseHTTPRequestHandler):
         self.wfile.write(discover_answer_binary)
         discover_request = plistlib.loads(post_data)
         validation_record = discover_request["SenderRecordData"]
-        f = open ("/home/m.terlecki/validation_record.cms", "x")
+        print(validation_record)
+        f = open ("validation_record.cms", "x")
         f.write(str(validation_record))
         f.close()
 
